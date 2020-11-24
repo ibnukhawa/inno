@@ -1,12 +1,14 @@
 {
   'name': 'Innograph Warranty Serial Number',
-  'author': 'By Innograph Odoo Developers',
-  'version': '0.1',
+  'author': 'Innograph Odoo Developers',
+  'version': '1.0',
   'depends': [
-    # 'nama_modul',
+    'sale','product','mrp','serial_pabrik'
   ],
   'data': [
-    # 'views/nama_file.xml',
+    'views/inno_serial_number.xml',
+    'report/barcode.xml', 
+    'data/inno_serial_number_sequence.xml'
   ],
   'qweb': [
     # 'static/src/xml/nama_widget.xml',
