@@ -8,7 +8,8 @@ class InnoSerialNumber(models.Model):
 
 	name = fields.Char(copy=False,  index=True, default=lambda self: _('New'))
 	sale_id = fields.Many2one('sale.order', string='SO Reference')
-	product_id = fields.Many2one('product.product', string="Product", related='manufacturing_id.product_id')
+	manufacturing_id = fields.Many2one('mrp.production', string='MO Reference')
+	product_id = fields.Many2one('product.product',readonly=False , string="Product", related='manufacturing_id.product_id')
 	partner_id = fields.Many2one('res.partner', string="Customer", related='sale_id.partner_id')
 	bom_id = fields.Many2one('mrp.bom', string="Bill of Materials")
 	location_src_id = fields.Many2one('stock.location', string="Source Location", domain=[('usage', '=', 'internal')])
@@ -26,7 +27,6 @@ class InnoSerialNumber(models.Model):
         change_default=True, domain="[('type','=','normal')]",
         required=True, help="Select category for the current product", related='product_id.categ_id')
 	date = fields.Date(string='Tanggal',default=fields.Date.today())
-	manufacturing_id = fields.Many2one('mrp.production', string='MO Reference')
 	product_selection = fields.Selection(
         selection=[
             ('floorstand43', 'Digital AD Display Floorstand 43"'),
@@ -449,8 +449,7 @@ class InnoPartRequestSerial(models.Model):
 	sale_id = fields.Many2one('sale.order', string='SO Reference')	
 	product_id = fields.Many2one('product.product', string="Product")
 	description = fields.Char()
-	serial_number_ids = fields.Many2many('serial.number.pabrik',string='Serial Number Pabrik')
-	serial_number_pabrik = fields.Char(string = 'Serial Number Pabrik',)
+	serial_number_ids = fields.Many2one('serial.number.pabrik',string='Serial Number Pabrik')
 	quantity = fields.Float()
 	uom_id = fields.Many2one('product.uom', string="Unit of Measure")
 	item_size = fields.Char()
