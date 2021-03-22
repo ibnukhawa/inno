@@ -91,7 +91,7 @@
 			<field name="view_mode">tree,form</field>
 		</record>
 
-		<menuitem id="main_serialnumber" name="Serial Number" parent="inno_after_sales.sales_warranty_parent_menu" sequence="15" />
+		<menuitem id="main_serialnumber" name="Serial Number" parent="inno_after_sales.sales_warranty_parent_menu" sequence="1" />
 
 		<menuitem id="sub_menu_inno_serial_number" name="Serial Number" parent="main_serialnumber" action="inno_serial_number.action_inno_serial_number" />
 
