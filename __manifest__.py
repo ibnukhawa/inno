@@ -8,6 +8,7 @@
   'data': [
     'views/inno_serial_number.xml',
     'report/barcode.xml', 
+    'security/ir.model.access.csv',
     'data/inno_serial_number_sequence.xml'
   ],
   'qweb': [

@@ -2,9 +2,17 @@
 <odoo>
     <data>
         <report 
-            id="report_inno_serial_number" 
+            id="report_inno_serial_number_html" 
             model="inno.serial.number" 
-            string="Serial Number"
+            string="Serial Number as HTML"
+            name="inno_serial_number.report_inno_serial_number_template" 
+            file="inno_serial_number.report_inno_serial_number_template" 
+            report_type="qweb-html"/>
+        
+        <report 
+            id="report_inno_serial_number_pdf" 
+            model="inno.serial.number" 
+            string="Serial Number as PDF"
             name="inno_serial_number.report_inno_serial_number_template" 
             file="inno_serial_number.report_inno_serial_number_template" 
             report_type="qweb-pdf"/>
@@ -32,7 +40,7 @@
                                         <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="col-xs-5">
                                             <img t-if="doc.name" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', doc.name + '\n\nPT. INNOVASI SARANA GRAFINDO\nOffice : Jl. Lenteng Agung Raya No. 15 (Jl. Baung No. 2) Jakarta Selatan 12610\nPhone : (62) 21 7883 1075\nFax : (62) 21 7883 1075\nPhone : (62) 21 7883 1692\nWebsite : http://innograph.com', 150, 150)"/><br/>
                                             <span t-field="doc.name"/><br/>
-                                            <span t-field="doc.date"/><br/>
+                                            <span t-field="doc.date"/>
                                             <!-- <span t-field="doc.serial_number_ids.name"/><br/> -->
                                         </td>
                                     </tr>
